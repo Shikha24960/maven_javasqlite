@@ -1,0 +1,32 @@
+package Shikha.one;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Javanew
+{
+public static void main(String args[])
+{
+String url="jdbc:sqlite:C://db//employee.db";
+System.out.println("Hello India");
+try
+{
+Class.forName("org.sqlite.JDBC");
+Connection con=DriverManager.getConnection(url);
+System.out.println("success");
+Statement smt=con.createStatement();
+ResultSet rs=smt.executeQuery("select * from empdata");
+while(rs.next())
+{
+System.out.println(rs.getInt(1)+rs.getString(2));
+}
+}
+catch (Exception e)
+{
+e.printStackTrace();
+}
+}
+
+}
